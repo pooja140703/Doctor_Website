@@ -4,18 +4,13 @@ h1{
   font-size:xx-large;
   font-size: xx-large;
   color: black;
-  /* font-weight: bold; */
+
   
   padding-top: 1rem;
-  /* text-decoration: underline;
-  text-underline-offset: .5em;
-  text-decoration-color: rgb(17, 219, 168); */
+ 
 }
 
-/* h1:hover{
-   background-color:aquamarine ;
-   color: #fff;
-} */
+
 hr {
    border: none;
    border-top: 4px solid rgb(17, 219, 168);; /* Change the color here */
