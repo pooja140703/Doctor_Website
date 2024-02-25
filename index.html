@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Load images</title>
+      <link rel="stylesheet" href="img.css">
+   </head>
+   <body>
+      <h1 id="button">Select Doctor<hr></h1>
+      <!-- <hr> -->
+      <div id="imageContainer">
+         
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+         var array = ["Dr.Najwa Johaji","Dr.Ibrahim Ahmajed","Dr.Mhanna Aljabab","Dr.Wael Alomari","Dr.Neha" , "Dr.Lisa" , "Dr.Roy" , "Dr.Lusy","Dr. Alexander Smith","Dr. Sophia Martinez","Dr. Michael Johnson","Dr. Olivia Brown","Dr. Natalie Garcia","Dr. Jacob Hernandez","Dr. Lily Clark","Dr. Christopher Moore","Dr. Mia Robinson","Dr. Isabella King","Dr. Grace Lewis","Dr. Ava Rodriguez"];
+         var specialism = ["Pedriastic Dental Consultant","Orthodontist","Orthodontist","Dental Care","Pediatrician",
+                              "Cardiologist",
+                              "Dermatologist",
+                              "Endocrinologist",
+                              "Gastroenterologist",
+                              "Neurologist",
+                              "Obstetrician",
+                              "Oncologist",
+                              "Ophthalmologist",
+                              "Orthopedic Surgeon",
+                              "Otolaryngologist",
+                              "Pathologist",
+                              "Pediatric Surgeon",
+                              "Plastic Surgeon",
+                              "Psychiatrist",
+                              "Urologist"];
+         // $("#button").on("click", function() {
+            var jsonData = '{"status":200,"count":3,"data":[{"image":"images/img1.jpg"}, {"image":"images/img2.jpg"}, {"image":"images/img3.jpg"},{"image":"images/img4.jpg"},{"image":"images/img5.jpg"},{"image":"images/img6.jpg"},{"image":"images/img7.jpg"},{"image":"images/img8.jpg"},{"image":"images/img9.jpg"},{"image":"images/img11.jpg"},{"image":"images/img10.jpg"},{"image":"images/img12.jpg"},{"image":"images/img1.jpg"},{"image":"https://randomuser.me/api/portraits/men/9.jpg"},{"image":"https://randomuser.me/api/portraits/women/3.jpg"},{"image":"https://randomuser.me/api/portraits/men/7.jpg"},{"image":"https://randomuser.me/api/portraits/women/4.jpg"},{"image":"https://randomuser.me/api/portraits/women/9.jpg"},{"image":"https://randomuser.me/api/portraits/men/8.jpg"},{"image":"https://randomuser.me/api/portraits/women/10.jpg"}]}';
+            var images = JSON.parse(jsonData).data;
+
+            for (var i = 0; i < images.length; i++) {
+               var imageUrl = images[i].image;
+               if (imageUrl !== "") {
+                  var imgElement = $('<img>').attr('src', imageUrl);
+                  var doctorName = array[i];
+                  var doctorSpecialism = specialism[i];
+                  
+                  var divElement = $('<div class="doctor-container">');
+                  var imgContainer = $('<div class="img-container">').append(imgElement);
+                  var nameContainer = $('<div class="name-container">').text(doctorName);
+                  var specialismContainer = $('<div class="specialism-container">').text(doctorSpecialism);
+                  
+                  divElement.append(imgContainer, nameContainer, specialismContainer);
+                  
+                  $("#imageContainer").append(divElement);
+               }
+            }
+        
+            // $("#button").toggle();
+         // });
+      </script>
+   </body>
+</html>
